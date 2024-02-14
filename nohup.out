@@ -1,0 +1,18 @@
+yarn run v1.22.19
+$ pm2 start ecosystem.config.json --no-daemon
+pm2 launched in no-daemon mode (you can add DEBUG="*" env variable to get more messages)
+2024-01-29T21:46:32: PM2 log: Launching in no daemon mode
+2024-01-29T21:46:32: PM2 log: [PM2][WARN] Applications app not running, starting...
+2024-01-29T21:46:32: PM2 log: App [app:0] starting in -cluster mode-
+2024-01-29T21:46:33: PM2 log: App [app:0] online
+2024-01-29T21:46:33: PM2 log: [PM2] App [app] launched (1 instances)
+2024-01-29T21:46:33: PM2 log: ┌─────┬────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ app    │ default     │ 1.7.0   │ cluster │ 1116     │ 0s     │ 0    │ online    │ 0%       │ 33.7mb   │ daydr3am │ disabled │
+└─────┴────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+2024-01-29T21:46:33: PM2 log: [--no-daemon] Continue to stream logs
+2024-01-29T21:46:33: PM2 log: [--no-daemon] Exit on target PM2 exit pid=7784
+21:46:34 0|app  | 2024-01-29T21:46:34: info: Connected to MongoDB
+21:46:34 0|app  | 2024-01-29T21:46:34: info: Listening to port 3000
+21:46:37 0|app  | 2024-01-29T21:46:37: info: Connected to email server
