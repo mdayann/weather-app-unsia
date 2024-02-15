@@ -47,6 +47,126 @@ components:
         message:
           type: string
 
+    WeatherErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        stack:
+          type: string
+
+    Coord:
+      type: object
+      properties:
+        lon:
+          type: number
+        lat:
+          type: number
+
+    Weather:
+      type: object
+      properties:
+        id:
+          type: integer
+        main:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+
+    Main:
+      type: object
+      properties:
+        temp:
+          type: number
+        feels_like:
+          type: number
+        temp_min:
+          type: number
+        temp_max:
+          type: number
+        pressure:
+          type: integer
+        humidity:
+          type: integer
+        sea_level:
+          type: integer
+        grnd_level:
+          type: integer
+        temp_fh:
+          type: number
+        feels_like_fh:
+          type: number
+        temp_min_fh:
+          type: number
+        temp_max_fh:
+          type: number
+
+    Wind:
+      type: object
+      properties:
+        speed:
+          type: number
+        deg:
+          type: integer
+        gust:
+          type: number
+
+    Clouds:
+      type: object
+      properties:
+        all:
+          type: integer
+
+    Sys:
+      type: object
+      properties:
+        type:
+          type: integer
+        id:
+          type: integer
+        country:
+          type: string
+        sunrise:
+          type: integer
+        sunset:
+          type: integer
+
+    WeatherResponse:
+      type: object
+      properties:
+        coord:
+          $ref: '#/components/schemas/Coord'
+        weather:
+          type: array
+          items:
+            $ref: '#/components/schemas/Weather'
+        base:
+          type: string
+        main:
+          $ref: '#/components/schemas/Main'
+        visibility:
+          type: integer
+        wind:
+          $ref: '#/components/schemas/Wind'
+        clouds:
+          $ref: '#/components/schemas/Clouds'
+        dt:
+          type: integer
+        sys:
+          $ref: '#/components/schemas/Sys'
+        timezone:
+          type: integer
+        id:
+          type: integer
+        name:
+          type: string
+        cod:
+          type: integer
+
   responses:
     DuplicateEmail:
       description: Email already taken
@@ -84,6 +204,16 @@ components:
           example:
             code: 404
             message: Not found
+    WeatherError:
+      description:  Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WeatherErrorResponse'
+          example:
+            code: 503
+            message: Service Unavailable
+            stack: 'Error: Error getting weather data'
 
   securitySchemes:
     bearerAuth:

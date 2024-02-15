@@ -20,15 +20,13 @@ const defaultRoutes = [
     path: '/weather',
     route: weatherRoute,
   },
-];
-
-const devRoutes = [
-  // routes available only in development mode
   {
     path: '/docs',
     route: docsRoute,
   },
 ];
+
+const devRoutes = [];
 
 defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
