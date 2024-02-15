@@ -21,9 +21,6 @@ if (config.env !== 'test') {
   app.use(morgan.errorHandler);
 }
 
-// set security HTTP headers
-app.use(helmet());
-
 // parse json request body
 app.use(express.json());
 
@@ -57,6 +54,9 @@ app.use('/v1', routes);
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
+
+// set security HTTP headers
+app.use(helmet());
 
 // convert error to ApiError, if needed
 app.use(errorConverter);
