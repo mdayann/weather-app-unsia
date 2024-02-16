@@ -114,9 +114,6 @@ const queryHourlyDaily = async (lat, lon) => {
 
     const result = await response.json();
 
-    // eslint-disable-next-line no-console
-    console.log(result.list.length);
-
     let arrayResult = result.list;
     let currentDay = null;
     const daily = [];
@@ -153,12 +150,9 @@ const queryHourlyDaily = async (lat, lon) => {
       const currentDate = new Date(item.dt_txt);
       // Check if it's a new day
       if (currentDay === null || currentDate.getDate() !== currentDay) {
-        // If it's a new day, do something (e.g., log the date)
-        // eslint-disable-next-line no-console
-        console.log(`New day: ${currentDate.toDateString()}`);
         // Update the current day
         currentDay = currentDate.getDate();
-        daily.push(item);
+        daily.push(modifiedItem);
       }
       arrayResult[index] = modifiedItem;
     });
