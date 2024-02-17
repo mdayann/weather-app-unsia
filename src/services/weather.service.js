@@ -135,7 +135,7 @@ const queryHourlyDaily = async (lat, lon) => {
         weather: [
           {
             ...item.weather[0],
-            icon: `https://openweathermap.org/img/wn/${iconCode}@2x.png`,
+            icon_url: `https://openweathermap.org/img/wn/${iconCode}@2x.png`,
           },
         ],
         main: {
